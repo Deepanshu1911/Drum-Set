@@ -2,6 +2,7 @@ for (var x = 0; x < 7; x++) {
   document.querySelectorAll("button")[x].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML;
     switch_case(buttonInnerHTML);
+    animation(buttonInnerHTML);
   });
 }
 
@@ -42,6 +43,16 @@ function switch_case(currKey){
 
 document.addEventListener("keydown", function(event){
    switch_case(event.key);
+   animation(event.key);
 })
+
+function animation(currentKey){
+   var activeButton = document.querySelector("."+currentKey);
+   activeButton.classList.add("pressed");
+   setTimeout(function(){
+    activeButton.classList.remove("pressed");
+   }, 100);
+}
+
 
 
