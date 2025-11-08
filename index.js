@@ -1,7 +1,12 @@
 for (var x = 0; x < 7; x++) {
   document.querySelectorAll("button")[x].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML;
-    switch (buttonInnerHTML) {
+    switch_case(buttonInnerHTML);
+  });
+}
+
+function switch_case(currKey){
+  switch (currKey) {
       case "w":
         var tom1 = new Audio("./sounds/tom-1.mp3");
         tom1.play();
@@ -33,5 +38,10 @@ for (var x = 0; x < 7; x++) {
       default:
         console.log(buttonInnerHTML);
     }
-  });
 }
+
+document.addEventListener("keydown", function(event){
+   switch_case(event.key);
+})
+
+
